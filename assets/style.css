@@ -37,7 +37,19 @@ nav {
 a {
     font-size: 4px;
 }
-/* .nav-header {
-    block-size: 35px;
-} */
+
+.providers {
+    position:absolute;
+    bottom: 280px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.logos {
+    float: left;
+    width:  250px;
+    height: 100px;
+    object-fit: cover;
+}
 
