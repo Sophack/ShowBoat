@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(137, 200, 246) ;
+}
+
+nav {
+   background-color: rgb(31, 28, 128);
+}
+
+.results-search-bar {
+    position: absolute;
+    top: 9px;
+    left: 360px;
+    width: 60%;
+}
+
+.btn {
+    background-color:rgb(31, 28, 128);
+    color: white;
+}
+
+.result-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 70px;
+    align-items: center;
+    line-height: 30px;
+}
+
+li {
+    list-style: none;
+    color: rgb(12, 10, 54);
+}
+
+#show-info {
+    margin-left:100px;
+}
+
+#recommended {
+    text-align: center;
+    margin-top: 30px;
+}
+
+p {
+    color:rgb(12, 10, 54);
+}
+
+.watchlist-results {
+    position: absolute;
+    left: 240px;
+    color: rgb(137, 200, 246);
+    font-size: 25px;
+}
+
+a {
+    font-size: 4px;
+}
+
+/* .providers {
+    position:absolute;
+    bottom: 280px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+} */
