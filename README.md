@@ -1,3 +1,20 @@
+#ShowBoat 
+
+##Description
+
+A movie and TV show database that allows a user to search a show and find out which streaming service hosts it and provides additional information, while allowing users to save shows to a watchlist. 
+
+##Initial Wireframes 
+
+![Screenshot 2022-11-15 at 8 57 38 PM](https://user-images.githubusercontent.com/113313870/202065439-7afb3490-5be9-442c-a3a7-358a575554f1.png)
+
+![Screenshot 2022-11-15 at 8 57 43 PM](https://user-images.githubusercontent.com/113313870/202065557-33a5f843-9467-4f06-b3e1-66bdb84e3e1f.png)
+
+
+![Screenshot 2022-11-15 at 8 57 38 PM](https://user-images.githubusercontent.com/113313870/202065576-f883f564-aa7e-4ce2-bc02-85e6e0e2030e.png)
+
+
+
 Use a CSS framework other than Bootstrap.
 
 Be deployed to GitHub Pages.
