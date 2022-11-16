@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(137, 200, 246) ;
+}
+
+.home-search-bar {
+    position: absolute;
+    top: 40%;
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.btn {
+    background-color:rgb(31, 28, 128);
+    color: white;
+}
+
+.carousel {
+   position: relative;
+   top: 450px;
+   
+}
+
+nav {
+   background-color: rgb(31, 28, 128);
+}
+
+.watchlist-home {
+    color: rgb(137, 200, 246);
+    font-size: 25px;
+}
+
+a {
+    font-size: 4px;
+}
+/* .nav-header {
+    block-size: 35px;
+} */
+
