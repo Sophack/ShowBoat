@@ -42,11 +42,29 @@ a {
 }
 
 
+@media screen and (min-width: 800px) {
+    body {
+      background-color: lightgreen;
+    }
+    .home-search-bar{
+        margin-top: -175px;
+    }
+  }
+
+
+  @media screen and (max-width: 550px) {
+    body {
+      background-color: lightgreen;
+    }
+    .home-search-bar{
+        margin-bottom: 20px;
+    }
+  }
 
 /* .logos {
     float: left;
-    width:  250px;
-    height: 100px;
+    width:  20%;
+    height: 20%;
     object-fit: cover;
 } */
 
