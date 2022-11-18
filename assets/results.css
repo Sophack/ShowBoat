@@ -11,10 +11,10 @@ nav {
 }
 
 .results-search-bar {
-    position: absolute;
     top: 9px;
-    left: 360px;
+    left: -60px;
     width: 60%;
+
 }
 
 .btn {
@@ -29,6 +29,7 @@ nav {
     margin-top: 70px;
     align-items: center;
     line-height: 30px;
+
 }
 
 li {
@@ -59,6 +60,16 @@ p {
 a {
     font-size: 4px;
 }
+
+@media screen and (min-width: 200px) {
+    .results-search-bar { 
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+  }
+
 
 /* .providers {
     position:absolute;

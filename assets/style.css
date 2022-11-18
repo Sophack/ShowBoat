@@ -12,6 +12,7 @@ body {
     width: 60%;
     margin-right: 20%;
     margin-left: 20%;
+    z-index: 100;
 }
 
 .btn {
@@ -41,11 +42,27 @@ a {
 }
 
 
+@media screen and (min-width: 800px) {
+    body {
+      background-color: rgb(137, 200, 246);
+    }
+    .home-search-bar{
+        margin-top: -175px;
+    }
+  }
+
+
+  @media screen and (max-width: 550px) {
+    
+    .home-search-bar{
+        margin-bottom: 20px;
+    }
+  }
 
 /* .logos {
     float: left;
-    width:  250px;
-    height: 100px;
+    width:  20%;
+    height: 20%;
     object-fit: cover;
 } */
 
