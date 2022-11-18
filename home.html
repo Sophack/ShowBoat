@@ -25,15 +25,19 @@
             </div>
         </nav>
 
-        <div class="input-group mb-3 home-search-bar">
-            <input type="text" class="form-control"
+        <div id="search-bar" class="input-group mb-3 home-search-bar">
+            <input id="search-text" type="text" class="form-control"
                 placeholder="Search thousands of movies and TV shows to find out where to stream!"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Go!</button>
+                <button id="search-btn" class="btn btn-outline-secondary" type="button" onclick="addToURL()">Go!</button>
+                <!-- <a href="./results.html"></a> -->
             </div>
-        </div>
 
+        </div>
+<!-- <div>
+    <p id="availableOnId">it would show here</p>
+</div> -->
         <div class="row providers">
             <div class="col">
                 <img src="./assets/images/Apple.png" class="d-block w-100 logos" alt="Apple Logo">
@@ -78,7 +82,7 @@
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
