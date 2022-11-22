@@ -16,22 +16,21 @@
 <body>
     <nav class="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="/assets/images/sailboat-light.png" alt="Logo" width="30" height="24"
+            <a class="navbar-brand" href="home.html">
+                <img src="./assets/images/sailboat-light.png" alt="Logo" width="30" height="24"
                     class="d-inline-block align-text-top nav-header"> Show Boat
             </a>
             <i class="fa-regular fa-heart watchlist-results"></i>
             <div class="input-group mb-3 results-search-bar">
-                <input type="text" class="form-control"
-                    placeholder="Search another movie or TV Show!"
+                <input type="text" class="form-control" placeholder="Search another movie or TV Show!"
                     aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button">Go!</button>
                 </div>
-        </div>
+            </div>
     </nav>
     <main>
-        
+
         <div class="container-fluid result-display">
             <a id="show-link" class="show-poster" href="">
                 <img id="show-poster" src="" alt="Movie Poster" height="300px"
@@ -47,62 +46,33 @@
                 <li id="durationId">Duration:</li>
                 <li id="genresId">Genre(s):</li>
                 <li id="typeId">Type:</li>
-
             </ul>
         </div>
 
         <div id="recommended">
             <p><b>You may also like...</b></p>
-
-        <div class="row providers">
-            <div class="col">
-                <a href=""><img id="similarTitle0" src="" class="d-block w-100 logos" alt="Apple Logo"></a>
+            <div class="row providers">
+                <img class="col logos" id="similarTitle0" src="" class="d-block w-100 logos" alt="Apple Logo"
+                    onclick="storeId0()">
+                <img class="col logos" id="similarTitle1" src="" class="d-block w-100 logos" alt="Prime Logo"
+                    onclick="storeId1()">
+                <img class="col logos" id="similarTitle2" src="" class="d-block w-100 logos =" alt="Netflix Logo"
+                    onclick="storeId2()">
+                <img class="col logos" id="similarTitle3" src="" class="d-block w-100 logos" alt="Disney Logo"
+                    onclick="storeId3()">
             </div>
-            <div class="col logos">
-                <a href=""><img id="similarTitle1" src="" class="d-block w-100 logos" alt="Prime Logo"></div></a>
-            <div class="col logos">
-                <a href=""><img id="similarTitle2" src="" class="d-block w-100 logos =" alt="Netflix Logo"></a>
-            </div>
-            <div class="col logos">
-                <a href=""><img id="similarTitle3" src="" class="d-block w-100 logos" alt="Disney Logo"></div></a>
-          </div>
-
         </div>
 
 
 
-        
-        <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./assets/images/Apple.png" class="d-block w-100" alt="Apple Logo">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Prime.png" class="d-block w-100" alt="Prime Logo">
-              </div>
-              <div class="carousel-item">
-                <img src="./assets/images/Netflix.jpg" class="d-block w-100" alt="Netflix Logo">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div> -->
 
-
-
-
-
-    </main>   
+    </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"></script>
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="./assets/js/results.js"></script>
+    <script>"./data.json"</script>
+
 </body>
+
 </html>
