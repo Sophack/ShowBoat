@@ -1,48 +1,4 @@
-// // fetch movies by creating elements in js 
-// // -data atrributes will be different for different movies
-// // -if there is no key present then first time user is visiting 
-
-// var heartList = document.querySelector('#heartBtn');
-
-// function heartLike() {
-//     var storedLikes = JSON.parse(localStorage.getItem("favorites"));
-// }
-
-// for (var i = 0; i < heartLike.length; i++) {
-//     var like = favourite[i];
-
-//     var li = document.createElement("li");
-//     li.textContent = like;
-//     li.setAttribute("data-index", i);
-
-//     var button = document.createElement("favourite");
-//     button.textContent = "Your choice has been noted ✔️";
-
-//     li.appendChild(button);
-//     heartList.appendChild(li);
-//   }
-
-// heartLike ()
-
-
-// //   creat an UO list & create list items for each & append it to the front end
-
-// //make a condition for when the user is first time 
-// //pull from api the info into local storage 
-// //each array item should have 2 objects (a list of items with the two objects)
-// //for loop to cycle through array
-
-// var listFavs = document.getElementById('heartBtn');
-
-// function choiceFavs() {
-//     var favourites = localStorage.getItem("favourites");
-//     listFavs.innerHTML ="";
-// }
-
-
-// maddie's code
-
-YOUR_API_KEY = "Fwh0ajztLiFlfUgwLyKvODRDtIlZpC46tMBPivKJ";
+YOUR_API_KEY = "1kSSSmY3DbTcWEslz3Nf1isUeRSeZXj8sROnaogP";
 // const showInfo = document.querySelector("#show-info");
 // let count = document.getElementById("show-info").children().length;
 // const availableOn = showInfo.querySelector('#second');
@@ -50,17 +6,7 @@ YOUR_API_KEY = "Fwh0ajztLiFlfUgwLyKvODRDtIlZpC46tMBPivKJ";
 // const results = window.open("results.html")
 // let availableOn = results.document.getElementById("availableOnId")
 
-// fetch('https://api.watchmode.com/v1/sources/?apiKey=Fwh0ajztLiFlfUgwLyKvODRDtIlZpC46tMBPivKJ')
-//     .then(function(response) {
-//         return response.json();
-//     })
-//     .then(function(data) {
-//         console.log (data); 
-//         console.log(data[0].name);
-//         for (var i = 0; i < data.length; i++) {
-//             console.log(data[i].name);
-//         }
-//     });
+
 
 
 function addToURL() {
@@ -69,11 +15,10 @@ function addToURL() {
     console.log(searchValue);
     console.log(typeof searchValue);
 
-    let searchBarLink = 'https://api.watchmode.com/v1/search/?apiKey=Fwh0ajztLiFlfUgwLyKvODRDtIlZpC46tMBPivKJ&search_field=name&search_value='
+    let searchBarLink = 'https://api.watchmode.com/v1/search/?apiKey=1kSSSmY3DbTcWEslz3Nf1isUeRSeZXj8sROnaogP&search_field=name&search_value='
 
     updatedSearchLink = searchBarLink + searchValue;
     console.log(updatedSearchLink);
-
 
     // then we'll fetch using the updated URL
     fetch(updatedSearchLink)
@@ -88,8 +33,8 @@ function addToURL() {
             let titleId = data.title_results[0].id;
 
             // then we can fetch using the id
-            idSearchLink = 'https://api.watchmode.com/v1/title/' + titleId + '/details/?apiKey=Fwh0ajztLiFlfUgwLyKvODRDtIlZpC46tMBPivKJ&append_to_response=sources';
-            console.log(idSearchLink);
+            idSearchLink = 'https://api.watchmode.com/v1/title/' + titleId + '/details/?apiKey=1kSSSmY3DbTcWEslz3Nf1isUeRSeZXj8sROnaogP&append_to_response=sources';
+            // console.log(idSearchLink);
             fetch(idSearchLink)
                 .then(function (response) {
                     return response.json();
@@ -133,18 +78,16 @@ function addToURL() {
                             // local storage if using a lot of data
                             localStorage.setItem("searchedShow", JSON.stringify(searchedShow));
                             window.location.replace("http://127.0.0.1:5502/results.html");
-
-                            
                         }
                     }
                 });
-         
+
         });
-    }
-        
+}
 
 
 
-        // function redirectResults(){
-        //     window.location.href='./results.html';
-        // };
+
+//         // function redirectResults(){
+//         //     window.location.href='./results.html';
+//         // };
