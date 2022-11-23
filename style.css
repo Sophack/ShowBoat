@@ -15,9 +15,19 @@ body {
     z-index: 100;
 }
 
-.btn {
-    background-color:rgb(31, 28, 128);
+.btns {
     color: white;
+    display: flex;
+}
+
+.btn {
+    background: transparent;
+    border: none;
+    color: rgb(118, 177, 202);
+}
+
+.btn i:hover{
+    cursor: pointer;
 }
 
 nav {
