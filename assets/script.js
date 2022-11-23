@@ -95,8 +95,7 @@ function addToURL() {
 
 //below code is for the heart button to save to a favourites list
 
-var meals = document.getElementById("meals");
-getRandomMeal();
+
 //the below function should post a random recipe in the middle of the homepage
 
 
