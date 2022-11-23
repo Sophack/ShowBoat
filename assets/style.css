@@ -1,15 +1,18 @@
 * {
     box-sizing: border-box;
+    
 }
 
 body {
-    background-color:rgb(137, 200, 246) ;
+    background-color:rgb(137, 200, 246);
+    height: 100vh;
+
 }
 
 .home-search-bar {
     position: absolute;
     top: 40%;
-    width: 60%;
+    width: 30%;
     margin-right: 20%;
     margin-left: 20%;
     z-index: 100;
@@ -20,17 +23,44 @@ body {
     color: white;
 }
 
-nav {
+h1 {
+    color: rgb(137, 200, 246);
+    font-size: 25px;
+    margin-top: 7px;
+}
+
+.home-icon {
+    display: inline-flex;
+}
+
+.navbar-brand {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
    background-color: rgb(31, 28, 128);
+   align-items: baseline;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   background-color: rgb(31, 28, 128);
+   align-items: center;
 }
 
 .watchlist-home {
     color: rgb(137, 200, 246);
     font-size: 25px;
+    /* position: relative;
+    left: 670px;
+    top: 17px; */
 }
 
 a {
-    font-size: 4px;
+    font-size: 30px;
+    color:white;
 }
 
 .providers {
@@ -38,11 +68,12 @@ a {
     bottom: 280px;
     margin-left: 10px;
     margin-right: 10px;
+    background-color:rgb(137, 200, 246) ;
     
 }
 
 
-@media screen and (min-width: 800px) {
+/* @media screen and (min-width: 800px) {
     body {
       background-color: rgb(137, 200, 246);
     }
@@ -57,7 +88,7 @@ a {
     .home-search-bar{
         margin-bottom: 20px;
     }
-  }
+  } */
 
 /* .logos {
     float: left;
@@ -65,4 +96,3 @@ a {
     height: 20%;
     object-fit: cover;
 } */
-

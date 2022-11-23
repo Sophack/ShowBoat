@@ -1,6 +1,7 @@
-
+const API_KEY = "UUeMtTmz64bqsGmtroleJMBD02GJaL6xdGABIjng";
 let showTitle = document.getElementById("titleId");
 let showPoster = document.getElementById("show-poster");
+let showLink = document.getElementById("show-link");
 let showGenres = document.getElementById("genresId");
 let showDuration = document.getElementById("durationId");
 let showReleaseDate = document.getElementById("releaseDateId");
@@ -9,61 +10,148 @@ let showUserRating = document.getElementById("userRatingId");
 let showCriticScore = document.getElementById("criticsScoreId");
 let showAvaileableOn = document.getElementById("availableOnId")
 let showType = document.getElementById("typeId");
+let similarTitle0 = document.getElementById("similarTitle0");
+let similarTitle1 = document.getElementById("similarTitle1");
+let similarTitle2 = document.getElementById("similarTitle2");
+let similarTitle3 = document.getElementById("similarTitle3");
 /* <li id="starringId">Starring:</li> */
-
 function resultsPage() {
     // on load of second html, get object from local storage
     const showDetails = localStorage.getItem("searchedShow");
     show = JSON.parse(showDetails)
-    // console.log("showDetails: ", JSON.parse(showDetails));
-    console.log(show);
-    console.log(show.title);
-    console.log(show.genres);
-    for (i = 0; i < show.genres.length; i++) {
-        console.log(show.genres[i]);
-    };
-    console.log(show.runtime);
-    console.log(show.releaseDate);
-    console.log(show.similarTitles);
-    console.log(show.userRating);
-    console.log(show.criticScore);
-    console.log(show.findOn);
-    console.log(show.type);
-
-
 
     showTitle.textContent = "Title: " + (show.title);
     showAvaileableOn.textContent = "Available on: " + (show.findOn);
     showReleaseDate.textContent = "Release date: " + (show.releaseDate);
-    /* <li id="starringId">Starring:</li> */
     showUserRating.textContent = "User Rating: " + (show.userRating);
     showCriticScore.textContent = "Critics Score: " + (show.criticScore);
     showDuration.textContent = "Duration: " + (show.runtime);
     showGenres.textContent = "Genre(s): " + (show.genres);
     showType.textContent = "Type: " + (show.type);
-
-    showPoster = (show.poster);
+    showPoster.setAttribute('src', (show.poster));
+    showLink.setAttribute('href', (show.webUrl));
 
     // for this, we'll need to fetch the IDs and use those IDs to get the poster
-    // showSimilarTitles = (show.similarTitles);
-    for (i = 0; i < show.similarTitles.length; i++) {
-        // console.log(show.similarTitles[i]);
-        titleId = (show.similarTitles[i])
-        // then we can fetch using the id
-        idSearchLink = 'https://api.watchmode.com/v1/title/' + titleId + '/details/?apiKey=Fwh0ajztLiFlfUgwLyKvODRDtIlZpC46tMBPivKJ&append_to_response=sources';
-        // console.log(idSearchLink);
-        // can we do a pull in script.js for name, id & poster then store locally, so when we need to get the posters for similar titles, we dont need to call from api
-        fetch(idSearchLink)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                // console.log(data.title);
-                // console.log(data.poster);
-                showSimilarTitles = (data.poster)
-            });
-
-    };
+    idSearchLink0 = `https://api.watchmode.com/v1/title/` + (show.similarTitles[0]) + `/details/?apiKey=${API_KEY}&append_to_response=sources`;
+    fetch(idSearchLink0)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            similarTitle0.setAttribute('src', (data.poster));
+        });
+    idSearchLink1 = `https://api.watchmode.com/v1/title/` + (show.similarTitles[1]) + `/details/?apiKey=${API_KEY}&append_to_response=sources`;
+    fetch(idSearchLink1)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            similarTitle1.setAttribute('src', (data.poster));
+        });
+    idSearchLink2 = `https://api.watchmode.com/v1/title/` + (show.similarTitles[2]) + `/details/?apiKey=${API_KEY}&append_to_response=sources`;
+    fetch(idSearchLink2)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            similarTitle2.setAttribute('src', (data.poster));
+        });
+    idSearchLink3 = `https://api.watchmode.com/v1/title/` + (show.similarTitles[3]) + `/details/?apiKey=${API_KEY}&append_to_response=sources`;
+    fetch(idSearchLink3)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            similarTitle3.setAttribute('src', (data.poster));
+        });
 };
 
 resultsPage();
+
+
+function fetchById() {
+    let getTitleId = localStorage.getItem("titleId");
+    parseTitleId = JSON.parse(getTitleId)
+    let titleId = parseTitleId.id;
+    console.log(titleId);
+    // then we can fetch using the id
+    idSearchLink = `https://api.watchmode.com/v1/title/${titleId}/details/?apiKey=${API_KEY}&append_to_response=sources`;
+    // console.log(idSearchLink);
+    fetch(idSearchLink)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            for (i = 0; i < data.sources.length; i++) {
+                if (data.sources[i].type === "sub") {
+                    console.log("im working!");
+                    let availableOn = (data.sources[i].name);
+                    // availableOn.textContent = (data.sources[i].name);
+                    console.log(availableOn);
+                    // create an object and store inside local storage
+                    let searchedShow = {
+                        title: data.title,
+                        poster: data.poster,
+                        genres: data.genre_names,
+                        runtime: data.runtime_minutes,
+                        releaseDate: data.release_date,
+                        similarTitles: data.similar_titles,
+                        userRating: data.user_rating,
+                        criticScore: data.critic_score,
+                        findOn: availableOn,
+                        type: data.type,
+                        webUrl: data.sources[i].web_url
+                    }
+                    console.log(searchedShow);
+                    // local storage if using a lot of data
+                    localStorage.setItem("searchedShow", JSON.stringify(searchedShow));
+                    resultsPage();
+                };
+            };
+
+        });
+};
+
+function storeId0() {
+    getId = localStorage.getItem("searchedShow");
+    clickedId = JSON.parse(getId)
+    console.log(clickedId.similarTitles[0]);
+    let titleId = {
+        id: clickedId.similarTitles[0]
+    }
+    localStorage.setItem("titleId", JSON.stringify(titleId));
+    fetchById();
+};
+
+function storeId1() {
+    getId = localStorage.getItem("searchedShow");
+    clickedId = JSON.parse(getId)
+    console.log(clickedId.similarTitles[1]);
+    let titleId = {
+        id: clickedId.similarTitles[1]
+    }
+    localStorage.setItem("titleId", JSON.stringify(titleId));
+    fetchById();
+};
+
+function storeId2() {
+    getId = localStorage.getItem("searchedShow");
+    clickedId = JSON.parse(getId)
+    console.log(clickedId.similarTitles[2]);
+    let titleId = {
+        id: clickedId.similarTitles[2]
+    }
+    localStorage.setItem("titleId", JSON.stringify(titleId));
+    fetchById();
+};
+
+function storeId3() {
+    getId = localStorage.getItem("searchedShow");
+    clickedId = JSON.parse(getId)
+    console.log(clickedId.similarTitles[3]);
+    let titleId = {
+        id: clickedId.similarTitles[3]
+    }
+    localStorage.setItem("titleId", JSON.stringify(titleId));
+    fetchById();
+};
