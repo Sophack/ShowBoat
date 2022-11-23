@@ -11,6 +11,7 @@ h1 {
     color: rgb(137, 200, 246);
     font-size: 25px;
     margin-top: 7px;
+    font-family: pacifico;
 }
 .home-icon {
     display: inline-flex;
@@ -89,6 +90,8 @@ p {
     color:rgb(12, 10, 54);
     text-align: center;
     margin-top: 20px;
+    font-family: pacifico;
+    font-size: 20px;
 }
 
 .watchlist-results {
