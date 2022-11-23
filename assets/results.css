@@ -4,18 +4,51 @@
 
 body {
     background-color:rgb(137, 200, 246);
-    height: 100vh;
+    height: 120vh;
+}
+
+h1 {
+    color: rgb(137, 200, 246);
+    font-size: 25px;
+    margin-top: 7px;
+}
+.home-icon {
+    display: inline-flex;
+}
+
+.navbar-brand {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+   background-color: rgb(31, 28, 128);
+   align-items: baseline;
 }
 
 .navbar {
+    display:flex;
    background-color: rgb(31, 28, 128);
+   flex-direction: row;
+   align-items: baseline;
+}
+
+#search-text {
+    width: 60%;
+    /* position:relative;
+    top: 30%; */
+    border-radius: 5px 0px 0px 5px;
 }
 
 .results-search-bar {
-    top: 9px;
-    left: -60px;
-    width: 60%;
 
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    position: relative;
+    bottom: 5px;
+    left: 6%;
+    
+ 
 }
 
 .btn {
@@ -33,13 +66,18 @@ body {
 
 }
 
+#show-poster {
+    box-shadow: 0 0 10px rgb(21, 43, 167);
+}
+
 li {
     list-style: none;
     color: rgb(12, 10, 54);
 }
 
 #show-info {
-    margin-left:100px;
+    margin-left:50px;
+
 }
 
 #recommended {
@@ -49,27 +87,70 @@ li {
 
 p {
     color:rgb(12, 10, 54);
+    text-align: center;
+    margin-top: 20px;
 }
 
 .watchlist-results {
-    position: absolute;
-    left: 240px;
+    position: relative;
+    right: -10vw;
+    top: 12px;
     color: rgb(137, 200, 246);
     font-size: 25px;
 }
 
-a {
-    font-size: 4px;
-}
+@media screen and (max-width: 550px) {
 
-@media screen and (min-width: 200px) {
-    .results-search-bar { 
-        position: relative;
+    .navbar-brand {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        right: 10px;
     }
 
-  }
+    .watchlist-results {
+        position: relative;
+        top: 115px;
+        right: 75px;
+        color: rgb(31, 28, 128);
+        font-size: 30px;
+    }
+
+    .result-display {
+        display:flex;
+        flex-direction: column;
+    }
+    body {
+        height: 180vh;
+    }
+
+    #search-bar {
+        width: 90vw;
+        position: relative;
+        left:10%;
+        margin-top: 10px;
+    }
+
+
+
+    /* .results-search-bar { 
+        display: inline-flex;
+        position: relative;
+        top:45px;
+    } */
+    /* .navbar-brand {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        align-self: start; */
+        /* position:relative;
+        top: 30%; */
+        /* border-radius: 5px 0px 0px 5px; */
+    }
+
+
 
 
 /* .providers {
