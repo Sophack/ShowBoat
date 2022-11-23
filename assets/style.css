@@ -9,13 +9,31 @@ body {
 
 }
 
+#search-bar {
+    margin-top: 270px;
+}
+
+#search-text {
+    width: 60%;
+    /* position:relative;
+    top: 30%; */
+    border-radius: 5px 0px 0px 5px;
+}
+
 .home-search-bar {
-    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* position:relative;
+    top: 30%; */
+
+    /* position: absolute;
     top: 40%;
-    width: 30%;
+    width: 60%;
     margin-right: 20%;
-    margin-left: 20%;
-    z-index: 100;
+    margin-left: 20%; */
+    /* z-index: 100; */
 }
 
 .btn {
@@ -53,42 +71,41 @@ h1 {
 .watchlist-home {
     color: rgb(137, 200, 246);
     font-size: 25px;
-    /* position: relative;
-    left: 670px;
-    top: 17px; */
+    position: relative;
+    right: 15px;
+   
 }
 
 a {
     font-size: 30px;
-    color:white;
 }
 
 .providers {
-    position:absolute;
-    bottom: 280px;
+   display: flex;
+   flex-direction: row;
     margin-left: 10px;
     margin-right: 10px;
-    background-color:rgb(137, 200, 246) ;
-    
+    margin-top: 30px; 
 }
 
 
-/* @media screen and (min-width: 800px) {
+@media screen and (max-width: 500px) {
+
+    #search-bar {
+        margin-top: 45px;
+    }
+
+    .providers {
+        display: flex;
+        flex-direction: column;
+    }
+
     body {
-      background-color: rgb(137, 200, 246);
+        height: 160vh;
     }
-    .home-search-bar{
-        margin-top: -175px;
-    }
-  }
 
-
-  @media screen and (max-width: 550px) {
-    
-    .home-search-bar{
-        margin-bottom: 20px;
     }
-  } */
+
 
 /* .logos {
     float: left;

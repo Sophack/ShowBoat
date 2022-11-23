@@ -24,24 +24,27 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="index.html">
-          <img
-            src="/assets/images/sailboat-light.png"
-            alt="logo"
-            width="30"
-            height="24"
-            class="nav-header"
-          />Show Boat</a
-        >
-        <i class="fa-regular fa-heart watchlist-home"></i>
-      </div>
-      <div id="search-bar" class="home-search-bar">
-        <input
-          id="search-text"
-          type="text"
-          placeholder="Search another title!"
-        />
+        <div class="home-icon">
+          <a class="navbar-item" href="index.html">
+            <img
+              src="/assets/images/sailboat-light.png"
+              alt="logo"
+              width="30"
+              height="24"
+              class="nav-header"
+          /></a>
+          <h1>Show Boat</h1>
+        </div>
         <div>
+          <i class="fa-regular fa-heart watchlist-home"></i>
+        </div>
+        <div id="search-bar" class="home-search-bar">
+          <input
+            id="search-text"
+            type="text"
+            placeholder="Search another title!"
+          />
+
           <!-- maddy fix the button on click  -->
           <button
             class="button is-link"
@@ -74,43 +77,47 @@
 
       <p><b>You may also like...</b></p>
       <div id="recommended">
-          <div class="row providers columns">
-            <div class="column">
+        <div class="row providers columns">
+          <div class="column">
             <img
-            class="logos"
-            id="similarTitle0"
-            src=""
-            class="logos"
-            alt="Apple Logo"
-            onclick="storeId0()"
-            /></div>
-            <div class="column">
-          <img
-            class="logos"
-            id="similarTitle1"
-            src=""
-            class="logos"
-            alt="Prime Logo"
-            onclick="storeId1()"
-          /></div>
+              class="logos"
+              id="similarTitle0"
+              src=""
+              class="logos"
+              alt="Apple Logo"
+              onclick="storeId0()"
+            />
+          </div>
           <div class="column">
-          <img
-            class="logos"
-            id="similarTitle2"
-            src=""
-            class="logos ="
-            alt="Netflix Logo"
-            onclick="storeId2()"
-          /></div>
+            <img
+              class="logos"
+              id="similarTitle1"
+              src=""
+              class="logos"
+              alt="Prime Logo"
+              onclick="storeId1()"
+            />
+          </div>
           <div class="column">
-          <img
-            class="logos"
-            id="similarTitle3"
-            src=""
-            class="logos"
-            alt="Disney Logo"
-            onclick="storeId3()"
-          /></div>
+            <img
+              class="logos"
+              id="similarTitle2"
+              src=""
+              class="logos ="
+              alt="Netflix Logo"
+              onclick="storeId2()"
+            />
+          </div>
+          <div class="column">
+            <img
+              class="logos"
+              id="similarTitle3"
+              src=""
+              class="logos"
+              alt="Disney Logo"
+              onclick="storeId3()"
+            />
+          </div>
         </div>
       </div>
     </main>
