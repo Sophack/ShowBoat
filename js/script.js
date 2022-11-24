@@ -122,6 +122,9 @@ function toggle(){
 //below function is for the weather api
 let weather = {
     apiKey: "3c0a67a83a344ab29461af26c0316d68",
+
+    //fetching the weather data from URL 
+    //set the parameter = any city with metric units 
     fetchWeather: function (city) {
       fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -129,6 +132,7 @@ let weather = {
           "&units=metric&appid=" +
           this.apiKey
       )
+      //once the URL is fetched then we will have response
         .then((response) => {
           if (!response.ok) {
             alert("No weather found.");
@@ -138,7 +142,11 @@ let weather = {
         })
         .then((data) => this.displayWeather(data));
     },
+
+    //below function will extract the variables listed: 
+
     displayWeather: function (data) {
+
       const { name } = data;
       const { icon, description } = data.weather[0];
       const { temp, humidity } = data.main;
@@ -174,6 +182,7 @@ let weather = {
   weather.fetchWeather("Toronto");
 
 
+  //need to create functions so that it will suggest movies based on the weather/mood
 
 
   

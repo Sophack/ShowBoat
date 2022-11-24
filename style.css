@@ -112,10 +112,12 @@ a {
     object-fit: cover;
 } */
 /* 
-the following css is for the weather api */
+the following css is for the weather api 
+this ideally needs to be adjusted to the nav bar & media queries*/
+
 
 .card {
-    background: #000000d0;
+    background: #5b5be5d0;
     color: white;
     padding: 2em;
     border-radius: 30px;
@@ -137,7 +139,7 @@ the following css is for the weather api */
     height: 44px;
     width: 44px;
     outline: none;
-    background: #7c7c7c2b;
+    background: #9ab9c157;
     color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
