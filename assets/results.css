@@ -102,8 +102,16 @@ h1 {
     box-shadow: 0 0 10px rgb(21, 43, 167);
 }
 
+#show-poster:hover {
+    cursor: pointer;
+}
+
 .logos {
     box-shadow: 0 0 10px rgb(21, 43, 167);
+}
+
+.logos:hover {
+    cursor: pointer;
 }
 
 li {
