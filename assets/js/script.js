@@ -1,6 +1,14 @@
 const API_KEY = "BMsHZZbTMsqyA81lIBU7ZV2BMz5etHb49U7mfPH3";
-
+//get loading page
 const loaderContainer = document.querySelector('.loader-container');
+//get modal
+let modal = document.querySelector(".modal")
+
+function closeModal() {
+    modal.style.display = "none";
+    hideLoading();
+
+}
 
 window.addEventListener('load', () => {
     loaderContainer.style.visibility = 'hidden';
@@ -10,9 +18,9 @@ const displayLoading = () => {
     loaderContainer.style.visibility = 'visible';
 };
 
-// const hideLoading = () => {
-//     loaderContainer.style.visibility = 'hidden';
-// };
+const hideLoading = () => {
+    loaderContainer.style.visibility = 'hidden';
+};
 
 function fetchBySearch() {
     displayLoading()
@@ -32,6 +40,18 @@ function fetchBySearch() {
             return response.json();
         })
         .then(function (data) {
+            // if (!data.title_results[0]);
+            // confirm("Hmm...that might not work but feel free to roll the dice!")
+            // hideLoading()
+
+            if (!data.title_results[0]) {
+            modal.style.display = "block"
+            } else {
+            modal.style.display = "none";
+        }
+
+
+            console.log ("not in db")
             console.log(data);
             console.log(data.title_results[0]);
             console.log(data.title_results[0].name);
@@ -71,7 +91,9 @@ function fetchBySearch() {
                             // local storage if using a lot of data
                             localStorage.setItem("searchedShow", JSON.stringify(searchedShow));
                             window.location.href = "./results.html";
-                        };
+                        } else {
+                            modal.style.display = "block"
+                        }
 
                     };
                 });
