@@ -21,30 +21,33 @@
                     <img src="/assets/images/sailboat-light.png" alt="Logo" width="30" height="24"
                         class="d-inline-block align-text-top nav-header"> Show Boat
                 </a>
-                <i class="fa-regular fa-heart watchlist-home"></i>
+                <button class="fa-regular fa-heart watchlist-home heartBtn" id="heart-btn-home"></button>
+                <!-- add hide class? -->
+                <div id="list-modal" class="modal">
+                    <div class="modalContent">
+                        <h3>My Liked Movies</h3>
+                        <ul id="liked-list" class="modalList"></ul>
+                    </div>
+                </div>
+
             </div>
         </nav>
 
         <div id="search-bar" class="input-group mb-3 home-search-bar">
-            <input id="search-text" type="text" class="form-control"
+            <input id="search-text-home" type="text" class="form-control"
                 placeholder="Search thousands of movies and TV shows to find out where to stream!"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
-                <button id="search-btn" class="btn btn-outline-secondary" type="button" onclick="fetchBySearch()">Go!</button>
+                <button id="search-btn" class="btn btn-outline-secondary" type="button"
+                    onclick="fetchBySearchHome()">Go!</button>
             </div>
         </div>
 
         <div class="row providers">
-            <div class="col">
-                <img src="./assets/images/Apple.png" class="d-block w-100 logos" alt="Apple Logo">
-            </div>
-            <div class="col logos"><img src="./assets/images/Prime.png" class="d-block w-100 logos" alt="Prime Logo">
-            </div>
-            <div class="col logos"><img src="./assets/images/Netflix.png" class="d-block w-100 logos"
-                    alt="Netflix Logo">
-            </div>
-            <div class="col logos"><img src="./assets/images/Dplus.png" class="d-block w-100 logos" alt="Disney Logo">
-            </div>
+            <img src="./assets/images/Apple.png" class="d-block w-100 col logos" alt="Apple Logo">
+            <img src="./assets/images/Prime.png" class="d-block w-100 col logos" alt="Prime Logo">
+            <img src="./assets/images/Netflix.png" class="d-block w-100 col logos" alt="Netflix Logo">
+            <img src="./assets/images/Dplus.png" class="d-block w-100 col logos" alt="Disney Logo">
         </div>
     </main>
 

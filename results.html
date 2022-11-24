@@ -20,12 +20,13 @@
                 <img src="./assets/images/sailboat-light.png" alt="Logo" width="30" height="24"
                     class="d-inline-block align-text-top nav-header"> Show Boat
             </a>
-            <i class="fa-regular fa-heart watchlist-results"></i>
+            <i class="fa-regular fa-heart watchlist-results" id="heart-btn-results"></i>
+
             <div class="input-group mb-3 results-search-bar">
-                <input type="text" class="form-control" placeholder="Search another movie or TV Show!"
+                <input id="search-text-results" type="text" class="form-control" placeholder="Search another movie or TV Show!"
                     aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Go!</button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="fetchBySearchResults()">Go!</button>
                 </div>
             </div>
     </nav>
@@ -52,14 +53,10 @@
         <div id="recommended">
             <p><b>You may also like...</b></p>
             <div class="row providers">
-                <img class="col logos" id="similarTitle0" src="" class="d-block w-100 logos" alt="Apple Logo"
-                    onclick="storeId0()">
-                <img class="col logos" id="similarTitle1" src="" class="d-block w-100 logos" alt="Prime Logo"
-                    onclick="storeId1()">
-                <img class="col logos" id="similarTitle2" src="" class="d-block w-100 logos =" alt="Netflix Logo"
-                    onclick="storeId2()">
-                <img class="col logos" id="similarTitle3" src="" class="d-block w-100 logos" alt="Disney Logo"
-                    onclick="storeId3()">
+                <img class="col logos" id="similarTitle0" src="" class="d-block w-100 logos" alt="Apple Logo" onclick="storeId0()">
+                <img class="col logos" id="similarTitle1" src="" class="d-block w-100 logos" alt="Prime Logo" onclick="storeId1()">
+                <img class="col logos" id="similarTitle2" src="" class="d-block w-100 logos =" alt="Netflix Logo" onclick="storeId2()">
+                <img class="col logos" id="similarTitle3" src="" class="d-block w-100 logos" alt="Disney Logo" onclick="storeId3()">
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-const API_KEY = "UUeMtTmz64bqsGmtroleJMBD02GJaL6xdGABIjng";
+const API_KEY = "jfWcoKyzLINQ2pMHMRYENB6bJvYDTklzapZMUVPl";
 let showTitle = document.getElementById("titleId");
 let showPoster = document.getElementById("show-poster");
 let showLink = document.getElementById("show-link");
@@ -14,7 +14,10 @@ let similarTitle0 = document.getElementById("similarTitle0");
 let similarTitle1 = document.getElementById("similarTitle1");
 let similarTitle2 = document.getElementById("similarTitle2");
 let similarTitle3 = document.getElementById("similarTitle3");
-/* <li id="starringId">Starring:</li> */
+let heartBtnResults = document.getElementById("heart-btn-results");
+//need to prevent likedMovieArray from clearing when adding new movies on results page after being on home page
+let likedMovieArray = [];
+
 function resultsPage() {
     // on load of second html, get object from local storage
     const showDetails = localStorage.getItem("searchedShow");
@@ -57,6 +60,7 @@ function resultsPage() {
             similarTitle2.setAttribute('src', (data.poster));
         });
     idSearchLink3 = `https://api.watchmode.com/v1/title/` + (show.similarTitles[3]) + `/details/?apiKey=${API_KEY}&append_to_response=sources`;
+    console.log(idSearchLink3);
     fetch(idSearchLink3)
         .then(function (response) {
             return response.json();
@@ -67,7 +71,6 @@ function resultsPage() {
 };
 
 resultsPage();
-
 
 function fetchById() {
     let getTitleId = localStorage.getItem("titleId");
@@ -112,6 +115,31 @@ function fetchById() {
         });
 };
 
+function fetchBySearchResults() {
+    let searchValue = document.getElementById("search-text-results").value
+
+    console.log(searchValue);
+    console.log(typeof searchValue);
+
+    let searchBarLink = `https://api.watchmode.com/v1/search/?apiKey=${API_KEY}&search_field=name&search_value=${searchValue}`
+
+    console.log(searchBarLink);
+
+    // then we'll fetch using the updated URL
+    fetch(searchBarLink)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            let titleId = {
+                id: data.title_results[0].id
+            }
+            localStorage.setItem("titleId", JSON.stringify(titleId));
+            fetchById();
+        });
+};
+
+
 function storeId0() {
     getId = localStorage.getItem("searchedShow");
     clickedId = JSON.parse(getId)
@@ -155,3 +183,45 @@ function storeId3() {
     localStorage.setItem("titleId", JSON.stringify(titleId));
     fetchById();
 };
+
+heartBtnResults.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const showDetails = localStorage.getItem("searchedShow");
+    show = JSON.parse(showDetails)
+
+    const currentId = localStorage.getItem("titleId");
+    currentTitleId = JSON.parse(currentId)
+
+    //we already have the ID stored under titleID
+    //so we just need to store titleName with the titleID
+    let storeLikedMovie = [{
+        name: show.title,
+        id: currentTitleId.id
+    }]
+    console.log(likedMovieArray)
+    likedMovieArray.push(storeLikedMovie);
+    // console.log(likedMovieArray)
+    // console.log(likedMovieArray[0])
+    // console.log(likedMovieArray.name)
+    // console.log(likedMovieArray[i][0].name)
+
+
+    localStorage.setItem("likedMovieArray", JSON.stringify(likedMovieArray));
+});
+
+// on page load, likedMoviearray (local storage) gets pushed to empty array
+function loadLikedList() {
+    const likedArray = localStorage.getItem("likedMovieArray");
+    likedMovieList = JSON.parse(likedArray);
+    for (i = 0; i < likedMovieList.length; i++) {
+        let storeLikedMovie = [{
+            name: likedMovieList[i][0].name,
+            id: likedMovieList[i][0].id
+        }]
+        likedMovieArray.push(storeLikedMovie);
+    }
+    console.log(likedMovieArray);
+}
+
+loadLikedList();
