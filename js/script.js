@@ -76,131 +76,116 @@ function fetchBySearch() {
 };
 
 //heart button code
+//the simplest way would be to make the modal & then link the button to it
 
-var heartBtn = document.getElementById('btnh1')
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 function toggle(){
-    if (heartBtn.style.color=="blue"){
-      heartBtn.style.color= "grey"
+    if (btn.style.color=="blue"){
+      btn.style.color= "grey"
     }
     else{
-      heartBtn.style.color = "blue"
+      btn.style.color = "blue"
     }
 
 }
 
 
-//the below function shows the likes saved on the array by their ID 
-//this will be later used to access the local storage 
-// function addMovieLS (){
-//   let storeMovieInfo= {
-//     id: 
-//   }
 
-//   const genres = [
-//     {
-//       "id": 28,
-//       "name": "Action"
-//     },
-//     {
-//       "id": 12,
-//       "name": "Adventure"
-//     },
-//     {
-//       "id": 16,
-//       "name": "Animation"
-//     },
-//     {
-//       "id": 35,
-//       "name": "Comedy"
-//     },
-//     {
-//       "id": 80,
-//       "name": "Crime"
-//     },
-//     {
-//       "id": 99,
-//       "name": "Documentary"
-//     },
-//     {
-//       "id": 18,
-//       "name": "Drama"
-//     },
-//     {
-//       "id": 10751,
-//       "name": "Family"
-//     },
-//     {
-//       "id": 14,
-//       "name": "Fantasy"
-//     },
-//     {
-//       "id": 36,
-//       "name": "History"
-//     },
-//     {
-//       "id": 27,
-//       "name": "Horror"
-//     }
-//   ]
-
-
-// //below code is for the heart button to save to a favourites list
-// var heartBtn = document.getElementById("heartBtn");
-// getFavourite();
-// //the below function should post a random recipe in the middle of the homepage
-
-// function getFavourite (favouriteData, string = false) {
-//   var favourite = document.createElement('div'); //creating a div under favourites
-//   favourite.classList.add('favourites');
-
-//   favourite.innerHTML = `
-//   <div class="fav-header">
-//   ${string ? `
-//   <span class="userFav">
-//     Testing Fav List
-//   </span>` :""}  
+//below function is for the weather api
+let weather = {
+    apiKey: "3c0a67a83a344ab29461af26c0316d68",
+    fetchWeather: function (city) {
+      fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+          city +
+          "&units=metric&appid=" +
+          this.apiKey
+      )
+        .then((response) => {
+          if (!response.ok) {
+            alert("No weather found.");
+            throw new Error("No weather found.");
+          }
+          return response.json();
+        })
+        .then((data) => this.displayWeather(data));
+    },
+    displayWeather: function (data) {
+      const { name } = data;
+      const { icon, description } = data.weather[0];
+      const { temp, humidity } = data.main;
+      const { speed } = data.wind;
+      document.querySelector(".city").innerText = "Weather in " + name;
+      document.querySelector(".icon").src =
+        "https://openweathermap.org/img/wn/" + icon + ".png";
+      document.querySelector(".description").innerText = description;
+      document.querySelector(".temp").innerText = temp + "°C";
+      document.querySelector(".humidity").innerText =
+        "Humidity: " + humidity + "%";
+      document.querySelector(".wind").innerText =
+        "Wind speed: " + speed + " km/h";
+      document.querySelector(".weather").classList.remove("loading");
+      document.body.style.backgroundImage =
+        "url('https://source.unsplash.com/1600x900/?" + name + "')";
+    },
+    search: function () {
+      this.fetchWeather(document.querySelector(".search-bar").value);
+    },
+  };
   
-//   <div class="fav-list">
-//     <img src="${favouriteData.titleId}"
-//      alt="${favouriteData.favourite}"/>
-//   </div>
-//   <div class="fav-body">
-//     <h4>${favouriteData.title_results}</h4>
-//   <button class="fav-btn active">
-//     <i class="far fa-heart"></i>
-//   </button>
-// </div>`;
+  document.querySelector(".search button").addEventListener("click", function () {
+    weather.search();
+  });
+  
+  document
+    .querySelector(".search-bar")
+    .addEventListener("keyup", function (event) {
+      if (event.key == "Enter") {
+        weather.search();
+      }
+    });
+  
+  weather.fetchWeather("Toronto");
+
+
+
+
+// function fetchLiked() {
+//     let userInput = localStorage.getItem("searchedShow", JSON.stringify(searchedShow));
+
+//     console.log(userInput);
+
+//     let searchBarLink = `https://api.watchmode.com/v1/search/?apiKey=${API_KEY}&search_field=name&search_value=`
+
+//     updatedSearchLink = searchBarLink + searchValue;
+//     console.log(updatedSearchLink);
 // }
 
-
-
-// }
-
-
-// var btn = favourite.querySelector(".fav-btn");
-
-// btn.addEventListener("click", () => {
-//     btn.classList.toggle("active");
-// });
-
-//     favourite.appendChild(meal);
-// }
-
-// function addMovieToLS(favouriteId){
-//   var mealIds = getMealsFromLS();
-//   localStorage.setItem('favIds', JSON.stringify ([...favIds]));
-// }
-
-// function removeMovieFromLS(mealId){
-//   var favIds = getMovieFromLS();
-//   localStorage.setItem('favIds', JSON.stringify ([...favIds]));
-// }
-
-// function getMovieFromLS() {
-//   var favIds = JSON.parse(localStorage.getItem('favIds'));
-//   return favIds;
-// }
-
-//calling the variable meals & appending from the ID so it will show up
-//the button should store to local storage & add the meal to favourites list
