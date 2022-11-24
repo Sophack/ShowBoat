@@ -48,6 +48,10 @@ h1 {
     display: inline-flex;
 }
 
+.nav-header {
+    margin-right: 10px;
+}
+
 .navbar-brand {
     display: inline-flex;
     flex-direction: row;
@@ -140,25 +144,25 @@ p {
 .watchlist-results {
     position: relative;
     right: -10vw;
-    top: 12px;
+    top: 20px;
     color: rgb(137, 200, 246);
     font-size: 25px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 590px) {
 
     .navbar-brand {
         display: flex;
         flex-direction: column;
         align-items: center;
         position: relative;
-        right: 10px;
+        left: 10px;
     }
 
     .watchlist-results {
         position: relative;
-        top: 115px;
-        right: 75px;
+        top: 130px;
+        right: 100px;
         color: rgb(31, 28, 128);
         font-size: 30px;
     }
@@ -174,35 +178,7 @@ p {
     #search-bar {
         width: 90vw;
         position: relative;
-        left:14%;
+        left:10%;
         margin-top: 10px;
     }
-
-
-
-    /* .results-search-bar { 
-        display: inline-flex;
-        position: relative;
-        top:45px;
-    } */
-    /* .navbar-brand {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-grow: 1;
-        align-self: start; */
-        /* position:relative;
-        top: 30%; */
-        /* border-radius: 5px 0px 0px 5px; */
-    }
-
-
-
-
-/* .providers {
-    position:absolute;
-    bottom: 280px;
-    margin-left: 10px;
-    margin-right: 10px;
-    
-} */
+}
