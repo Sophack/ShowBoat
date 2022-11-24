@@ -1,6 +1,21 @@
-const API_KEY = "UUeMtTmz64bqsGmtroleJMBD02GJaL6xdGABIjng";
+const API_KEY = "BMsHZZbTMsqyA81lIBU7ZV2BMz5etHb49U7mfPH3";
+
+const loaderContainer = document.querySelector('.loader-container');
+
+window.addEventListener('load', () => {
+    loaderContainer.style.visibility = 'hidden';
+});
+
+const displayLoading = () => {
+    loaderContainer.style.visibility = 'visible';
+};
+
+// const hideLoading = () => {
+//     loaderContainer.style.visibility = 'hidden';
+// };
 
 function fetchBySearch() {
+    displayLoading()
     let searchValue = document.getElementById("search-text").value
 
     console.log(searchValue);
@@ -31,18 +46,7 @@ function fetchBySearch() {
                     return response.json();
                 })
                 .then(function (data) {
-                    // console.log(data);
-                    // console.log(data.title);
-                    // console.log(data.runtime_minutes);
-                    // console.log(data.poster);
-                    // console.log(data.critic_score);
-                    // console.log(data.genre_names);
-                    // console.log(data.release_date);
-                    // console.log(data.sources);
-                    // console.log(data.similar_titles);
-                    // console.log(data.type);
-                    // console.log(data.user_rating);
-
+                    // hideLoading()
                     for (i = 0; i < data.sources.length; i++) {
                         if (data.sources[i].type === "sub") {
                             console.log("im working!");

@@ -1,4 +1,5 @@
-const API_KEY = "UUeMtTmz64bqsGmtroleJMBD02GJaL6xdGABIjng";
+const API_KEY = "BMsHZZbTMsqyA81lIBU7ZV2BMz5etHb49U7mfPH3";
+
 let showTitle = document.getElementById("titleId");
 let showPoster = document.getElementById("show-poster");
 let showLink = document.getElementById("show-link");
@@ -14,7 +15,21 @@ let similarTitle0 = document.getElementById("similarTitle0");
 let similarTitle1 = document.getElementById("similarTitle1");
 let similarTitle2 = document.getElementById("similarTitle2");
 let similarTitle3 = document.getElementById("similarTitle3");
-/* <li id="starringId">Starring:</li> */
+
+const loaderContainer = document.querySelector('.loader-container');
+
+window.addEventListener('load', () => {
+    loaderContainer.style.display = 'none';
+});
+
+// const displayLoading = () => {
+//     loaderContainer.display = 'block';
+// };
+
+// const hideLoading = () => {
+//     loaderContainer.style.display = 'none';
+// };
+
 function resultsPage() {
     // on load of second html, get object from local storage
     const showDetails = localStorage.getItem("searchedShow");

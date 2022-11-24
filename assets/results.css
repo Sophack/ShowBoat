@@ -4,7 +4,38 @@
 
 body {
     background-color:rgb(137, 200, 246);
-    height: 120vh;
+    height: 300vh;
+}
+
+.boat-movement {
+    
+    animation: spin-anim 1.5s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.loader-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background:  rgb(12, 9, 111, 0.8);
+    z-index: 1;
 }
 
 h1 {
@@ -71,6 +102,10 @@ h1 {
     box-shadow: 0 0 10px rgb(21, 43, 167);
 }
 
+.logos {
+    box-shadow: 0 0 10px rgb(21, 43, 167);
+}
+
 li {
     list-style: none;
     color: rgb(12, 10, 54);
@@ -125,13 +160,13 @@ p {
         flex-direction: column;
     }
     body {
-        height: 180vh;
+        height: 300vh;
     }
 
     #search-bar {
         width: 90vw;
         position: relative;
-        left:10%;
+        left:14%;
         margin-top: 10px;
     }
 
