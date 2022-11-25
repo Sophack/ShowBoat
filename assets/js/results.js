@@ -17,6 +17,19 @@ let similarTitle3 = document.getElementById("similarTitle3");
 let heartBtnResults = document.getElementById("heart-btn-results");
 //need to prevent likedMovieArray from clearing when adding new movies on results page after being on home page
 let likedMovieArray = [];
+const loaderContainer = document.querySelector('.loader-container');
+
+window.addEventListener('load', () => {
+    loaderContainer.style.display = 'none';
+});
+
+// const displayLoading = () => {
+//     loaderContainer.display = 'block';
+// };
+
+// const hideLoading = () => {
+//     loaderContainer.style.display = 'none';
+// };
 
 function resultsPage() {
     // on load of second html, get object from local storage

@@ -1,6 +1,31 @@
 const API_KEY = "jfWcoKyzLINQ2pMHMRYENB6bJvYDTklzapZMUVPl";
+//get loading page
+const loaderContainer = document.querySelector('.loader-container');
+//get modal
+let modal = document.querySelector(".modal")
+let movieModal = document.getElementById("list-modal");
+let heartBtnHome = document.getElementById("heart-btn-home");
+
+function closeModal() {
+    modal.style.display = "none";
+    hideLoading();
+
+}
+
+window.addEventListener('load', () => {
+    loaderContainer.style.visibility = 'hidden';
+});
+
+const displayLoading = () => {
+    loaderContainer.style.visibility = 'visible';
+};
+
+const hideLoading = () => {
+    loaderContainer.style.visibility = 'hidden';
+};
 
 function fetchBySearchHome() {
+    displayLoading()
     let searchValue = document.getElementById("search-text-home").value
 
     console.log(searchValue);
@@ -16,6 +41,16 @@ function fetchBySearchHome() {
             return response.json();
         })
         .then(function (data) {
+            // if (!data.title_results[0]);
+            // confirm("Hmm...that might not work but feel free to roll the dice!")
+            // hideLoading()
+
+            if (!data.title_results[0]) {
+            modal.style.display = "block"
+            } else {
+            modal.style.display = "none";
+            }
+            console.log ("not in db")
             let titleId = {
                 id: data.title_results[0].id
             }
@@ -31,6 +66,7 @@ function fetchBySearchHome() {
                 })
                 .then(function (data) {
 
+                    // hideLoading()
                     for (i = 0; i < data.sources.length; i++) {
                         if (data.sources[i].type === "sub") {
                             console.log("im working!");
@@ -49,22 +85,24 @@ function fetchBySearchHome() {
                                 criticScore: data.critic_score,
                                 findOn: availableOn,
                                 type: data.type,
-                                webUrl: data.sources[i].web_url
+                                webUrl: data.sources[i].web_url,
                             }
                             console.log(searchedShow);
                             // local storage if using a lot of data
                             localStorage.setItem("searchedShow", JSON.stringify(searchedShow));
                             window.location.href = "./results.html";
-                        };
+                        } else {
+                            modal.style.display = "block"
+                        }
 
                     };
                 });
 
+
         });
 };
 
-let modal = document.getElementById("list-modal");
-let heartBtnHome = document.getElementById("heart-btn-home");
+
 
 function fetchById() {
     let getTitleId = localStorage.getItem("titleId");
@@ -154,18 +192,17 @@ heartBtnHome.addEventListener("click", function (event) {
 
             localStorage.setItem("likedMovieArray", JSON.stringify(likedMovieList));
         }
-        //have to add event listener for when x button is clicked, it is removed from the likedMovieList
 
         li.appendChild(button);
         document.getElementById("liked-list").appendChild(li);
-        modal.style.display = "block";
+        movieModal.style.display = "block";
     };
 });
 
 // When the user clicks on <span> (x), close the modal
 window.addEventListener("click", function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == movieModal) {
+        movieModal.style.display = "none";
         let movieList = document.getElementById("liked-list");
         movieList.innerHTML = '';
     }

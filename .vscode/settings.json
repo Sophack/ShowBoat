@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "git.mergeEditor": true,
+    "merge-conflict.autoNavigateNextConflict.enabled": true,
+    "merge-conflict.diffViewPosition": "Beside"
 }
