@@ -38,9 +38,9 @@
         <div>
           <i class="fa-regular fa-heart watchlist-home" id="heart-btn-home"></i>
         </div>
-        <div id="list-modal" class="movieModalContainer hide">
+        <div id="list-modal" class="movieModalContainer">
           <div class="movieModalContent">
-              <h3>My Liked Movies</h3>
+              <h3>My Watch List</h3>
               <ul id="liked-list" class="movieModalList"></ul>
           </div>
       </div>
@@ -52,26 +52,24 @@
     </div>
 
     <div class="modal">
-        <div class="modal-header">
-          <!-- <span class="close-btn">&times;</span>
-          <h1 id="modal-greeting">Ahoy, Matey!</h1> -->
-        </div>
-        <div class="modal-content">
-            <h1>Ahoy, Matey!</h1>
-          <p>That search won't get ya the booty y'arr after! </p>
-          <div class="modal-buttons">
-            <button
-            class="button is-link"
-            id="cancel-btn"
-            type="button" onclick="closeModal()"
-          >Cancel</button>
-        </div>
-        </div>
+      <div class="modal-header">
       </div>
+      <div class="modal-content">
+          <h1>Ahoy, Matey!</h1>
+        <p>That search won't get ya the booty y'arr after! </p>
+        <div class="modal-buttons">
+          <button
+          class="button is-link"
+          id="cancel-btn"
+          type="button" onclick="closeModal()"
+        >Try Again!</button>
+      </div>
+      </div>
+    </div>
 
       <div id="search-bar" class="home-search-bar">
         <input
-          id="search-text-home"
+          id="search-text"
           type="text"
           placeholder="Search thousands of titles to find out where to stream!"/>
         <button

@@ -15,21 +15,28 @@ let similarTitle1 = document.getElementById("similarTitle1");
 let similarTitle2 = document.getElementById("similarTitle2");
 let similarTitle3 = document.getElementById("similarTitle3");
 let heartBtnResults = document.getElementById("heart-btn-results");
+let modal = document.querySelector(".modal");
+
 //need to prevent likedMovieArray from clearing when adding new movies on results page after being on home page
 let likedMovieArray = [];
 const loaderContainer = document.querySelector('.loader-container');
 
+function closeModal() {
+    modal.style.display = "none";
+    hideLoading();
+}
+
 window.addEventListener('load', () => {
-    loaderContainer.style.display = 'none';
+    loaderContainer.style.visibility = 'hidden';
 });
 
-// const displayLoading = () => {
-//     loaderContainer.display = 'block';
-// };
+const displayLoading = () => {
+    loaderContainer.style.visibility = 'visible';
+};
 
-// const hideLoading = () => {
-//     loaderContainer.style.display = 'none';
-// };
+const hideLoading = () => {
+    loaderContainer.style.visibility = 'hidden';
+};
 
 function resultsPage() {
     // on load of second html, get object from local storage
@@ -84,6 +91,7 @@ function resultsPage() {
 };
 
 resultsPage();
+hideLoading();
 
 function fetchById() {
     let getTitleId = localStorage.getItem("titleId");
@@ -102,7 +110,6 @@ function fetchById() {
                 if (data.sources[i].type === "sub") {
                     console.log("im working!");
                     let availableOn = (data.sources[i].name);
-                    // availableOn.textContent = (data.sources[i].name);
                     console.log(availableOn);
                     // create an object and store inside local storage
                     let searchedShow = {
@@ -122,6 +129,9 @@ function fetchById() {
                     // local storage if using a lot of data
                     localStorage.setItem("searchedShow", JSON.stringify(searchedShow));
                     resultsPage();
+                    hideLoading();
+                } else {
+                    modal.style.display = "block"
                 };
             };
 
@@ -129,7 +139,8 @@ function fetchById() {
 };
 
 function fetchBySearchResults() {
-    let searchValue = document.getElementById("search-text-results").value
+    displayLoading()
+    let searchValue = document.getElementById("search-text").value
 
     console.log(searchValue);
     console.log(typeof searchValue);
@@ -144,14 +155,18 @@ function fetchBySearchResults() {
             return response.json();
         })
         .then(function (data) {
-            let titleId = {
-                id: data.title_results[0].id
-            }
-            localStorage.setItem("titleId", JSON.stringify(titleId));
-            fetchById();
+            if (!data.title_results[0]) {
+                modal.style.display = "block"
+                } else {
+                modal.style.display = "none";
+                let titleId = {
+                    id: data.title_results[0].id
+                }
+                localStorage.setItem("titleId", JSON.stringify(titleId));
+                fetchById();
+                }
         });
 };
-
 
 function storeId0() {
     getId = localStorage.getItem("searchedShow");

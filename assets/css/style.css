@@ -1,68 +1,82 @@
 * {
     box-sizing: border-box;
-    
+
 }
 
 .modal {
     display: none;
-    position: fixed; 
+    position: fixed;
     padding-top: 50px;
-    left: 0; 
+    left: 0;
     top: 0;
-    margin-left:25%;
+    margin-left: 25%;
     margin-top: 10%;
     width: 50%;
-    height:100%; 
+    height: 100%;
     /* background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.5); */
-  }
-  .modal-content {
-    position: relative; 
+}
+
+.modal-content {
+    position: relative;
     background-color: rgb(12, 9, 111, 0.9);
-    padding: 20px; 
-    margin: auto; 
-    width: 75%;  
+    padding: 20px;
+    margin: auto;
+    width: 75%;
     border-radius: 10px;
     box-shadow: 0 0 20px blue;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
-  }
+}
 
-  .modal-content p {
+.modal-content p {
     color: white;
-  }
+}
 
-  .modal-content h1 {
+.modal-content h1 {
     color: white;
     text-align: center;
-  }
+}
 
-  .modal-buttons {
-    margin-top:20px ;
+.modal-buttons {
+    margin-top: 20px;
     float: right;
-  }
+}
 
-  .movieModalContainer {
-    border: 3px navy solid;
+.movieModalContainer {
+    display: none;
     position: fixed;
-    z-index: 20;
+    padding-top: 50px;
     left: 0;
     top: 0;
+    margin-left: 25%;
+    margin-top: 10%;
+    width: 50%;
+    height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
 }
 
 .movieModalContent {
-    color: navy;
-    text-decoration: none;
-    background-color: #fefefe;
-    margin: 15% auto;
+    position: relative;
+    background-color: rgb(12, 9, 111, 0.95);
+    color: white;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    margin: auto;
+    width: 75%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px blue;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.movieModalContent h3 {
+    text-align: center;
+    font-family: pacifico;
+    font-size: 25px;
 }
 
 .movieModalList {
@@ -71,21 +85,42 @@
     padding: 5px;
 }
 
-.hide {
-    display: none;
+.movieModalList innertext{
+    word-wrap: normal;
 }
 
-  @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-  }
-  @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-  }
+.removeBtn {
+    float: right;
+    /* background-color: none; */
+
+}
+
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
 
 .boat-movement {
-    
     animation: spin-anim 1.5s linear infinite;
 }
 
@@ -93,12 +128,15 @@
     0% {
         transform: rotate(0deg);
     }
+
     25% {
         transform: rotate(-10deg);
     }
+
     75% {
         transform: rotate(10deg);
     }
+
     100% {
         transform: rotate(0);
     }
@@ -111,12 +149,12 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    background:  rgb(12, 9, 111, 0.8);
+    background: rgb(12, 9, 111, 0.8);
     z-index: 1;
 }
 
 body {
-    background-color:rgb(137, 200, 246);
+    background-color: rgb(137, 200, 246);
     height: 170vh;
 
 }
@@ -177,13 +215,13 @@ a {
     color: rgb(137, 200, 246);
     font-size: 25px;
     position: relative;
-    right: 15px; 
+    right: 15px;
 }
 
 p {
     margin-top: 30px;
     text-align: center;
-    color:rgb(14, 12, 60);
+    color: rgb(14, 12, 60);
     font-family: pacifico;
     font-size: 20px;
 }
@@ -193,7 +231,7 @@ p {
     flex-direction: row;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 30px; 
+    margin-top: 30px;
     flex-wrap: wrap;
 
 }
@@ -202,6 +240,21 @@ p {
     box-shadow: 0 0 10px rgb(21, 43, 167);
     min-width: 200px;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 671px) {
+    .movieModalContainer {
+        display: none;
+        position: fixed;
+        padding-top: 50px;
+        left: 0;
+        top: 0;
+        margin-left: -5%;
+        margin-top: 10%;
+        width: 110%;
+        height: 100%;
+        overflow: auto;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -214,7 +267,7 @@ p {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        
+
     }
 
     body {

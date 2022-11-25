@@ -9,7 +9,6 @@ let heartBtnHome = document.getElementById("heart-btn-home");
 function closeModal() {
     modal.style.display = "none";
     hideLoading();
-
 }
 
 window.addEventListener('load', () => {
@@ -26,7 +25,7 @@ const hideLoading = () => {
 
 function fetchBySearchHome() {
     displayLoading()
-    let searchValue = document.getElementById("search-text-home").value
+    let searchValue = document.getElementById("search-text").value
 
     console.log(searchValue);
     console.log(typeof searchValue);
@@ -157,6 +156,7 @@ heartBtnHome.addEventListener("click", function (event) {
         let movie = likedMovieList[i][0].name;
         let li = document.createElement("li");
         li.textContent = movie;
+        // li.innerText.style.bold;
         li.onclick = function () {
             console.log(movie);
             console.log(likedMovieList);
@@ -176,6 +176,7 @@ heartBtnHome.addEventListener("click", function (event) {
         li.setAttribute("data-index", i);
         let button = document.createElement("button");
         button.textContent = "X";
+        button.setAttribute('class', 'removeBtn')
         button.onclick = function () {
             document.getElementById("liked-list").removeChild(li);
             console.log(movie);
