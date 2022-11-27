@@ -1,7 +1,113 @@
 * {
     box-sizing: border-box;
-
 }
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #222;
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+    font-size: 120%;
+} */
+
+.card {
+    /* background-color: rgb(31, 28, 128); */
+    background-color: rgb(31, 28, 128);
+    color: white;
+    font-family: pacifico;
+    border: 3px solid rgb(137, 200, 246);
+    /* made this the same as the cards */
+    border-radius: 15px;
+    width: 240px;
+    padding: 5px 12px;
+    /* max-width: 420px; */
+    /* margin: 5px; */
+}
+
+/* .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* .test button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.test button:hover {
+    background: #7c7c7c6b;
+} */
+
+/* input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background: #7c7c7c2b;
+    color: white;
+    font-family: inherit;
+    font-size: 105%;
+    width: calc(100% - 100px);
+} */
+
+/* .card h3 {
+    margin: 0;
+    /* margin-bottom: 0.4em; */
+/* }  */
+
+.weatherFlex {
+    display: flex;
+    align-items: center;
+}
+
+.weatherDescription {
+    text-transform: capitalize;
+    margin-left: 8px;
+}
+
+.weather {
+    position: relative;
+}
+
+/* after what? */
+/* .weather:after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    margin: 5px;
+} */
+
+/* .loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+    margin: 5px;
+} */
+/* .loading:after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    margin: 5px;
+} */
 
 .modal {
     display: none;
@@ -35,7 +141,7 @@
     color: white;
 }
 
-.modal-content h1 {
+.modal-content h2 {
     color: white;
     text-align: center;
 }
@@ -85,7 +191,7 @@
     padding: 5px;
 }
 
-.movieModalList innertext{
+.movieModalList innertext {
     word-wrap: normal;
 }
 
@@ -174,8 +280,8 @@ body {
 h1 {
     color: rgb(137, 200, 246);
     font-size: 25px;
-    margin-top: 7px;
     font-family: pacifico;
+    margin-right: 10px;
 }
 
 .home-icon {
@@ -188,7 +294,8 @@ h1 {
     justify-content: space-between;
     flex-grow: 1;
     background-color: rgb(31, 28, 128);
-    align-items: baseline;
+    align-items: center;
+    margin: 5px;
 }
 
 #search-bar {
@@ -215,7 +322,9 @@ a {
     color: rgb(137, 200, 246);
     font-size: 25px;
     position: relative;
-    right: 15px;
+    /* right: 15px; */
+    padding: 5px;
+    margin-right: 20px;
 }
 
 p {
@@ -260,18 +369,54 @@ p {
 @media screen and (max-width: 500px) {
 
     #search-bar {
-        margin-top: 45px;
+        margin-top: 110px;
     }
 
     .providers {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-
     }
 
     body {
         height: 360vh;
+        border: 5px solid rgb(137, 200, 246);
     }
+
+    .watchlist-home {
+        display: flex;
+        top: -65px;
+    }
+
+    .card {
+        background-color: transparent;
+        color: white;
+        font-family: pacifico;
+        border: 3px solid  rgb(31, 28, 128);
+        border-radius: 15px;
+        width: 90%;
+        padding: 5px 15px;
+        position: relative;
+        top: 55px;
+        right: 2.5%;
+    }
+
+    .navbar {
+        width: 105%;
+        left: -5px;
+        top: -5px;
+    }
+
+    .navbar-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        height: 80px;
+    }
+
+    /* .home-icon {
+        top: 15px;
+    } */
 
 }

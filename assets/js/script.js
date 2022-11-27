@@ -1,4 +1,4 @@
-const API_KEY = "jfWcoKyzLINQ2pMHMRYENB6bJvYDTklzapZMUVPl";
+const API_KEY = "pVFzi42bd3zMb1SY8gcxb8avZIlrm0R6AVmBb6RJ";
 //get loading page
 const loaderContainer = document.querySelector('.loader-container');
 //get modal
@@ -41,11 +41,11 @@ function fetchBySearchHome() {
         })
         .then(function (data) {
             // if (!data.title_results[0]);
-            // confirm("Hmm...that might not work but feel free to roll the dice!")
+            // confirm("Hmm...that might not work but feel free to roll the dice!"
             // hideLoading()
 
             if (!data.title_results[0]) {
-            modal.style.display = "block"
+            modal.style.display = "block";
             } else {
             modal.style.display = "none";
             }
@@ -100,8 +100,6 @@ function fetchBySearchHome() {
 
         });
 };
-
-
 
 function fetchById() {
     let getTitleId = localStorage.getItem("titleId");
@@ -200,7 +198,6 @@ heartBtnHome.addEventListener("click", function (event) {
     };
 });
 
-// When the user clicks on <span> (x), close the modal
 window.addEventListener("click", function (event) {
     if (event.target == movieModal) {
         movieModal.style.display = "none";
@@ -208,3 +205,79 @@ window.addEventListener("click", function (event) {
         movieList.innerHTML = '';
     }
 });
+
+
+//defined this variable outside the function
+let weatherApiKey = "594ea481b00a6604e497673b5c4fe941";
+//changed into a function instead of a variable
+//NEED to add code that determines which city user is in
+function weather() {
+    // fetchWeather: function (city) {
+    // make sure not to use "" but instead use `` when adding to a link that you want to change
+    // moved the url outside of the actual fetch and defined as a variable 
+    let detectedCity = "Toronto" //find a way to detect the user's location
+    let userCity = `https://api.openweathermap.org/data/2.5/weather?q=${detectedCity}&units=metric&appid=${weatherApiKey}`
+
+      fetch(userCity)        
+        .then(function (response) {
+          if (!response.ok) {
+            // alert("No weather found.");
+            // I don't think we're allowed to use alerts
+            throw new Error("No weather found.");
+            //end this function/provide error message
+          } else {
+          return response.json();
+          }
+        })
+        .then(function (data) {
+            // this.displayWeather(data);
+            displayWeather(data);
+        });
+
+        function displayWeather (data) {
+            let name = data;
+            // what is this? v
+            let { icon, description } = data.weather[0];
+            // we don't need these
+            // let { temp } = data.main;
+            // let { speed } = data.wind;
+            // innerText or innerHTML?
+            document.querySelector(".city").innerText = "Movie night in:  " + name;
+            document.querySelector(".icon").src =
+              "https://openweathermap.org/img/wn/" + icon + ".png";
+            document.querySelector(".weatherDescription").innerText = description;
+            // document.querySelector(".wind").innerText =
+            //   "Wind speed: " + speed + " km/h";
+            //changed classList.remove to removeClass
+            // document.querySelector(".weather").removeClass(".loading");
+          }
+
+
+    // search: function () {
+    //   this.fetchWeather(document.querySelector(".search-bar").value);
+    // },
+  };
+
+
+//   document.querySelector(".search button").addEventListener("click", function () {
+//     weather.search();
+//   });
+
+
+//   document.querySelector(".search-bar").addEventListener("keyup", function (event) {
+//       if (event.key == "Enter") {
+//         weather.search();
+//       }
+//     });
+
+// what are we fetching here? by typing denver is that actually doing anything?
+//   weather.fetchWeather("Denver");
+
+// what's the event?
+  document.querySelector(".test").addEventListener("click", function (event) {
+      if (description == "Clear-Sky") {
+        console.log("not tonight!");
+      } else {
+        // ml: missing a whole section of code; if (description doesn't equal clear-sky) {tell user today is a good day to watch movie} else {present the next day that the weather isn't good}
+      }
+    });

@@ -1,4 +1,4 @@
-const API_KEY = "jfWcoKyzLINQ2pMHMRYENB6bJvYDTklzapZMUVPl";
+const API_KEY = "pVFzi42bd3zMb1SY8gcxb8avZIlrm0R6AVmBb6RJ";
 let showTitle = document.getElementById("titleId");
 let showPoster = document.getElementById("show-poster");
 let showLink = document.getElementById("show-link");
@@ -157,14 +157,14 @@ function fetchBySearchResults() {
         .then(function (data) {
             if (!data.title_results[0]) {
                 modal.style.display = "block"
-                } else {
+            } else {
                 modal.style.display = "none";
                 let titleId = {
                     id: data.title_results[0].id
                 }
                 localStorage.setItem("titleId", JSON.stringify(titleId));
                 fetchById();
-                }
+            }
         });
 };
 
