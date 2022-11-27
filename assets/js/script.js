@@ -281,3 +281,37 @@ function weather() {
         // ml: missing a whole section of code; if (description doesn't equal clear-sky) {tell user today is a good day to watch movie} else {present the next day that the weather isn't good}
       }
     });
+
+//below function is for the weather api
+function weather() {
+    const apiKey = "cd449ce8a0596130f95722331fe56ab4";
+    let city = 'Toronto';
+    let weatherurl = "https://api.openweathermap.org/data/3.0/onecall?lat=43&lon=79&appid=" + apiKey;
+    fetch(weatherurl)
+        .then(function (response) {
+          console.log(response);
+          return response.json();
+          
+        })
+        .then( function (data) {
+            pop1 = data.daily.rain
+            console.log(data.daily.rain);
+
+    
+            if (pop1 < 1) {
+                document.querySelector(".weatherLine").innerText = "No rain in-sight!";
+                }
+            else {
+                document.querySelector(".weatherLine").innerText = "Rain Today, Movie Night!";
+            }
+        });
+};
+
+let wbtn = document.getElementById("wbtn");
+
+wbtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    document.querySelector('.weather').style.display = "block"
+    weather();
+    });
+
