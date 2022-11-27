@@ -308,10 +308,19 @@ function weather() {
 };
 
 let wbtn = document.getElementById("wbtn");
+let weatherbubble = document.querySelector('.weather');
+let weatherClose = document.getElementById("closeWeather");
+
 
 wbtn.addEventListener("click", function (event) {
     event.preventDefault();
     document.querySelector('.weather').style.display = "block"
+    document.querySelector('.weather').style.visibility = "visible"
     weather();
     });
+
+
+weatherClose.addEventListener("click", function (event) {
+        document.querySelector('.weather').style.visibility = "hidden"
+})
 
