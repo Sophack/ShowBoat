@@ -245,7 +245,7 @@ function weather() {
     console.log(error);
     };
 
-    navigatior.geolocation.getCurrentPosition(successCallback, errorCallback);
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     };
 
 let wbtn = document.getElementById("wbtn");
