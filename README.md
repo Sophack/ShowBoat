@@ -1,43 +1,38 @@
-# Show Boat Streaming Database 
+# Show Boat  
 
 ## Description 
 A website that allows users to search any movie or TV show and quickly find out where it streams, navigate to the streaming location, and see information about the production. 
 
 The user can save movies or shows to a watchlist which they can edit to remove items. 
 
-## Initial Wire Frames
+The user can also plan a movie night according to the weather outside with the help of a weather widget. 
 
-![Screenshot 2022-11-15 at 8 57 38 PM](https://user-images.githubusercontent.com/113313870/202555669-1e343a44-6ef1-41b0-bdef-2dc23b97624c.png)
+## User interface
 
-- This is the home page
-- Home header is link to home page
-- grid of streaming logos on bottom links to the URL of the service 
-- Heart icon opens and displays user watchlist and user can click items to navigate to the streaming URL or remove items
+The homepage looks like the following screenshot: 
 
-![Screenshot 2022-11-15 at 8 57 43 PM](https://user-images.githubusercontent.com/113313870/202556218-51a10241-72be-4f82-92fa-ddce3bf78552.png)
+<img width="755" alt="image" src="https://user-images.githubusercontent.com/114966651/204397558-62b05509-7090-46cd-843e-9411a09ce389.png">
 
-- This is the results page. 
-- user can click heart to add movie to watchlist and open watchlist 
-- user can click on show poster result and nav to URL for that streaming service/show
-- User can click items in the recommended list and nav to those URLs 
-- User can search more titles or click the home header and navigate to home page. 
+The search bar enables the user to search for any movie or tv show to find out which platform it streams from. Clicking on the title of the application in the navbar "ShowBoat" will lead the user back to this page. Clicking on the icons will lead the user to the corresponding streaming service. 
 
-![Screenshot 2022-11-15 at 8 58 31 PM](https://user-images.githubusercontent.com/113313870/202555767-1e671294-d34c-46bb-8116-6c3a55708b1f.png)
-- this is the watchlist modal 
-- user can close or remove items
-- user can click an item to nav to the streaming URL. 
+***screenshot of results page 
 
-## User Flow
+This is the results page where the user is taken once they search for a title. 
+Clicking on the heart icon allows the user to create watchlist of their favourites. Clicking on the titles will also lead the user to the streaming platform where it can be played. User is also presented with a recommended list of similar titles. 
 
-<img width="603" alt="Screenshot 2022-11-16 at 1 12 36 PM" src="https://user-images.githubusercontent.com/113313870/202556362-cab9cf2b-d166-41b5-a529-d836dc887c05.png">
+***screenshot of watchlist modal
+
+This is the watchlist modal where user can view and edit their list of favourites. User can close or remove items the user can also navigate to the streaming service from the title. 
 
 
-## Installation
+## Technologies used 
 
-N/A
+CSS, HTML, Javascript, Font Awesome, Google Fonts, Bulma, & server-side APIs (watchmode and open weather) 
 
 ## Useage
 
 Visit the deployment to try it out:
+
+https://sophack.github.io/firstGroupProject/
 
 
