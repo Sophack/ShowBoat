@@ -11,8 +11,7 @@ The user can also plan a movie night according to the weather outside with the h
 
 The homepage looks like the following screenshot: 
 
-<img width="755" alt="image" src="https://user-images.githubusercontent.com/114966651/204397558-62b05509-7090-46cd-843e-9411a09ce389.png">
-
+<img width="721" alt="image" src="https://user-images.githubusercontent.com/114966651/204403848-c50b6919-47fc-4172-a953-22b72a90a808.png">
 The search bar enables the user to search for any movie or tv show to find out which platform it streams from. Clicking on the title of the application in the navbar "ShowBoat" will lead the user back to this page. Clicking on the icons will lead the user to the corresponding streaming service. 
 
 <img width="837" alt="image" src="https://user-images.githubusercontent.com/114966651/204402732-9a08f458-a30d-425e-a18d-9e385a7b5bf7.png">
